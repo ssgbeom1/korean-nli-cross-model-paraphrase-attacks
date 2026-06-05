@@ -1,0 +1,13 @@
+﻿target_key,label,label_name,sampled_annotation_rows,unique_source_units,represented_attack_success_instances
+claude_sonnet,0,Entailment,31,31,31
+claude_sonnet,1,Neutral,23,23,23
+claude_sonnet,2,Contradiction,23,22,23
+gemini,0,Entailment,33,33,33
+gemini,1,Neutral,24,24,24
+gemini,2,Contradiction,23,22,23
+gpt,0,Entailment,34,34,34
+gpt,1,Neutral,25,25,25
+gpt,2,Contradiction,35,34,35
+hyperclova_x,0,Entailment,37,37,37
+hyperclova_x,1,Neutral,25,25,25
+hyperclova_x,2,Contradiction,25,24,25

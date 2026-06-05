@@ -1,0 +1,40 @@
+4x4 Analysis Summary
+====================
+Total evaluated rows: 35344 across 16 cells
+Overall ASR: 6.05% (1931/31896), Wilson 95% CI [5.80%, 6.32%]
+
+ASR matrix (%):
+target         claude_sonnet  gemini    gpt  hyperclova_x
+generator                                                
+claude_sonnet           4.54    2.43   4.99          7.75
+gemini                  4.78    2.85   5.78         10.67
+gpt                     3.48    1.81   4.10          6.63
+hyperclova_x            9.42    6.52  10.03         13.20
+
+Generator-side ASR (%):
+         name  asr_pct  n_attack_success  n_original_correct
+ hyperclova_x     9.66               770                7974
+       gemini     5.84               466                7974
+claude_sonnet     4.82               384                7974
+          gpt     3.90               311                7974
+
+Target-side ASR (%):
+         name  asr_pct  n_attack_success  n_original_correct
+ hyperclova_x     9.56               681                7120
+          gpt     6.23               504                8092
+claude_sonnet     5.56               460                8276
+       gemini     3.40               286                8408
+
+Label-wise ASR (%):
+         name  asr_pct  n_attack_success  n_original_correct
+      Neutral     9.08               867                9548
+   Entailment     4.92               570               11580
+Contradiction     4.59               494               10768
+
+Largest label transitions among attack-success cases:
+- Neutral -> Entailment: 540/867 (62.3%)
+- Entailment -> Neutral: 475/570 (83.3%)
+- Contradiction -> Neutral: 350/494 (70.9%)
+- Neutral -> Contradiction: 327/867 (37.7%)
+- Contradiction -> Entailment: 144/494 (29.1%)
+- Entailment -> Contradiction: 95/570 (16.7%)

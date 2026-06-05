@@ -1,0 +1,13 @@
+﻿language,target,file,n_rows,n_valid_pred,parse_failure,accuracy_pct,label_0_n,label_0_accuracy_pct,label_1_n,label_1_accuracy_pct
+all,sonnet,results\06_external_benchmark\pawsx\pawsx_ko_en_claude_sonnet.csv,1000,1000,0,79.3,500,80.4,500,78.2
+en,sonnet,results\06_external_benchmark\pawsx\pawsx_ko_en_claude_sonnet.csv,500,500,0,83.0,250,83.2,250,82.8
+ko,sonnet,results\06_external_benchmark\pawsx\pawsx_ko_en_claude_sonnet.csv,500,500,0,75.6,250,77.60000000000001,250,73.6
+all,gemini,results\06_external_benchmark\pawsx\pawsx_ko_en_gemini.csv,1000,1000,0,83.3,500,85.2,500,81.39999999999999
+en,gemini,results\06_external_benchmark\pawsx\pawsx_ko_en_gemini.csv,500,500,0,86.0,250,86.0,250,86.0
+ko,gemini,results\06_external_benchmark\pawsx\pawsx_ko_en_gemini.csv,500,500,0,80.60000000000001,250,84.39999999999999,250,76.8
+all,openai,results\06_external_benchmark\pawsx\pawsx_ko_en_gpt.csv,1000,1000,0,80.10000000000001,500,73.0,500,87.2
+en,openai,results\06_external_benchmark\pawsx\pawsx_ko_en_gpt.csv,500,500,0,82.39999999999999,250,73.6,250,91.2
+ko,openai,results\06_external_benchmark\pawsx\pawsx_ko_en_gpt.csv,500,500,0,77.8,250,72.39999999999999,250,83.2
+all,clova,results\06_external_benchmark\pawsx\pawsx_ko_en_hyperclova_x.csv,1000,1000,0,70.5,500,46.400000000000006,500,94.6
+en,clova,results\06_external_benchmark\pawsx\pawsx_ko_en_hyperclova_x.csv,500,500,0,75.0,250,55.60000000000001,250,94.39999999999999
+ko,clova,results\06_external_benchmark\pawsx\pawsx_ko_en_hyperclova_x.csv,500,500,0,66.0,250,37.2,250,94.8

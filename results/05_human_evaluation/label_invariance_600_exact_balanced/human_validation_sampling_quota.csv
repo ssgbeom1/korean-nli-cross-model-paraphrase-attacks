@@ -1,0 +1,13 @@
+﻿generator_key,label,label_name,sampled,unique_source_units
+claude_sonnet,0,Entailment,50,50
+claude_sonnet,1,Neutral,50,50
+claude_sonnet,2,Contradiction,50,50
+gemini,0,Entailment,50,50
+gemini,1,Neutral,50,50
+gemini,2,Contradiction,50,50
+gpt,0,Entailment,50,50
+gpt,1,Neutral,50,50
+gpt,2,Contradiction,50,47
+hyperclova_x,0,Entailment,50,50
+hyperclova_x,1,Neutral,50,50
+hyperclova_x,2,Contradiction,50,50

@@ -1,0 +1,36 @@
+﻿LLM exact-balanced human-validation sampling summary
+=====================================================
+Annotation rows: 600
+Unique source paraphrase units: 597
+Duplicate rows for exact balance: 3
+
+Removed rows for balance:
+annotation_id unit_id generator_key  label   id
+      FHV0530   U1112  hyperclova_x      1 1788
+      FHV0509   U1044  hyperclova_x      1  554
+      FHV0510   U1046  hyperclova_x      1  643
+
+Duplicated source rows for balance:
+   unit_id source_unit_id generator_key  label   id
+U0838_DUP1          U0838           gpt      2 1846
+U0820_DUP1          U0820           gpt      2  577
+U0812_DUP1          U0812           gpt      2  214
+
+Quota by generator and label:
+generator_key  label    label_name  sampled  unique_source_units
+claude_sonnet      0    Entailment       50                   50
+claude_sonnet      1       Neutral       50                   50
+claude_sonnet      2 Contradiction       50                   50
+       gemini      0    Entailment       50                   50
+       gemini      1       Neutral       50                   50
+       gemini      2 Contradiction       50                   50
+          gpt      0    Entailment       50                   50
+          gpt      1       Neutral       50                   50
+          gpt      2 Contradiction       50                   47
+ hyperclova_x      0    Entailment       50                   50
+ hyperclova_x      1       Neutral       50                   50
+ hyperclova_x      2 Contradiction       50                   50
+
+Output directory:
+results\05_human_evaluation\label_invariance_600_exact_balanced
+

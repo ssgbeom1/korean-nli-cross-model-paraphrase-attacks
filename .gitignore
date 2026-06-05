@@ -1,0 +1,49 @@
+.env
+.env.*
+!.env.example
+
+# Local credentials and service-account files
+*service-account*.json
+*credentials*.json
+*.pem
+*.key
+
+# Python caches
+*.pyc
+*.pyo
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Logs and temporary files
+logs/
+*.log
+*.pid
+*.tmp
+*.bak
+debug/
+
+# OS/editor artifacts
+.DS_Store
+Thumbs.db
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.out
+*.synctex.gz
+*.toc
+
+data/*.parquet
+
+# Submission/review artifacts not needed for the public reproducibility package
+submission_docs/
+release/
+
+# Raw per-rater human-validation sheets; keep aggregate summaries instead
+results/05_human_evaluation/**/human_validation_annotation_sheet_researcher*.csv
+results/05_human_evaluation/**/bt_human_validation_annotation_sheet_researcher*.csv
+results/05_human_evaluation/**/*answer_key.csv

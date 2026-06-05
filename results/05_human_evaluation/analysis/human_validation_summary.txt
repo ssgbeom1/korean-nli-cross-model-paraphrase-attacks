@@ -1,0 +1,31 @@
+Human Validation Summary
+========================
+
+Label preservation:
+- bt: 111/180 (61.67%), resolved 111/165 (67.27%)
+- llm: 552/600 (92.00%), resolved 552/584 (94.52%)
+
+Inter-annotator agreement:
+- bt label: Fleiss' kappa=0.7042, three-way agreement=72.78%
+- llm label: Fleiss' kappa=0.8425, three-way agreement=84.33%
+- bt drift: Fleiss' kappa=0.8079, three-way agreement=82.22%
+- llm drift: Fleiss' kappa=0.4187, three-way agreement=84.33%
+
+Majority semantic drift distribution:
+- bt:
+  no_semantic_drift: 98 (54.44%)
+  specificity_shift: 37 (20.56%)
+  entity_number_time_change: 14 (7.78%)
+  fluency_grammar_defect: 9 (5.00%)
+  negation_modality_scope_drift: 9 (5.00%)
+  other: 7 (3.89%)
+  TIE: 4 (2.22%)
+  causality_temporal_relation_drift: 2 (1.11%)
+- llm:
+  no_semantic_drift: 552 (92.00%)
+  negation_modality_scope_drift: 22 (3.67%)
+  TIE: 9 (1.50%)
+  entity_number_time_change: 9 (1.50%)
+  ambiguous_label: 6 (1.00%)
+  causality_temporal_relation_drift: 1 (0.17%)
+  fluency_grammar_defect: 1 (0.17%)

@@ -1,0 +1,12 @@
+BT vs LLM Human-Adjusted Comparison
+===================================
+
+The comparison uses the BT-intersection subset for raw ASR.
+Primary adjusted ASR treats U/TIE human-validation outcomes as not label-preserving.
+
+- LLM paraphrase: raw ASR=6.14 [5.88, 6.42], LPR=92.00 [89.55, 93.91], adjusted ASR=5.60 [5.35, 5.86], resolved adjusted ASR=5.76 [5.51, 6.02]
+- Back Translation: raw ASR=7.67 [7.10, 8.29], LPR=61.67 [54.39, 68.46], adjusted ASR=4.88 [4.25, 5.51], resolved adjusted ASR=5.28 [4.64, 5.96]
+
+Interpretation:
+- BT has higher raw ASR (7.67% vs 6.14%), but lower human label preservation (61.67% vs 92.00%).
+- After human adjustment, LLM paraphrases are higher (5.60% vs 4.88%).

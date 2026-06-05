@@ -1,0 +1,12 @@
+4x4 integrity verification
+==========================
+Expected rows per cell: 2209
+Shared valid ids: 2209
+Original caches OK: 4/4
+4x4 cells OK: 16/16
+Cell original-cache mismatches: 0
+Fatal problems: 0
+
+Output files:
+- results\06_integrity_checks\4x4_original_cache_integrity.csv
+- results\06_integrity_checks\4x4_cell_integrity.csv

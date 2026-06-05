@@ -1,0 +1,17 @@
+﻿generator,target,path,rows,original_cache_mismatch_before_sync,original_correct_before,original_correct_after,attack_success_before,attack_success_after,delta_original_correct,delta_attack_success
+hyperclova_x,hyperclova_x,results\01_cross_model_evaluation\hyperclova_x_as_generator\to_hyperclova_x.csv,2209,20,1772,1780,231,235,8,4
+hyperclova_x,gemini,results\01_cross_model_evaluation\hyperclova_x_as_generator\to_gemini.csv,2209,0,2102,2102,137,137,0,0
+hyperclova_x,gpt,results\01_cross_model_evaluation\hyperclova_x_as_generator\to_gpt.csv,2209,47,2015,2023,201,203,8,2
+hyperclova_x,claude_sonnet,results\01_cross_model_evaluation\hyperclova_x_as_generator\to_claude_sonnet.csv,2209,11,2073,2069,195,195,-4,0
+gemini,hyperclova_x,results\01_cross_model_evaluation\gemini_as_generator\to_hyperclova_x.csv,2209,0,1780,1780,190,190,0,0
+gemini,gemini,results\01_cross_model_evaluation\gemini_as_generator\to_gemini.csv,2209,0,2102,2102,60,60,0,0
+gemini,gpt,results\01_cross_model_evaluation\gemini_as_generator\to_gpt.csv,2209,0,2023,2023,117,117,0,0
+gemini,claude_sonnet,results\01_cross_model_evaluation\gemini_as_generator\to_claude_sonnet.csv,2209,0,2069,2069,99,99,0,0
+gpt,hyperclova_x,results\01_cross_model_evaluation\gpt_as_generator\to_hyperclova_x.csv,2209,20,1772,1780,113,118,8,5
+gpt,gemini,results\01_cross_model_evaluation\gpt_as_generator\to_gemini.csv,2209,0,2102,2102,38,38,0,0
+gpt,gpt,results\01_cross_model_evaluation\gpt_as_generator\to_gpt.csv,2209,47,2015,2023,70,83,8,13
+gpt,claude_sonnet,results\01_cross_model_evaluation\gpt_as_generator\to_claude_sonnet.csv,2209,11,2073,2069,74,72,-4,-2
+claude_sonnet,hyperclova_x,results\01_cross_model_evaluation\claude_sonnet_as_generator\to_hyperclova_x.csv,2209,20,1772,1780,132,138,8,6
+claude_sonnet,gemini,results\01_cross_model_evaluation\claude_sonnet_as_generator\to_gemini.csv,2209,0,2102,2102,51,51,0,0
+claude_sonnet,gpt,results\01_cross_model_evaluation\claude_sonnet_as_generator\to_gpt.csv,2209,47,2015,2023,93,101,8,8
+claude_sonnet,claude_sonnet,results\01_cross_model_evaluation\claude_sonnet_as_generator\to_claude_sonnet.csv,2209,11,2073,2069,94,94,-4,0

@@ -1,0 +1,16 @@
+Korean Linguistic Feature Analysis
+==================================
+
+Binary feature ASR when feature is present:
+- word_order_shift: ASR=7.09% (165/2328), OR=1.201, Holm p=0.1152
+- particle_count_changed: ASR=6.50% (1444/22205), OR=1.315, Holm p=1.476e-06
+- sentence_ending_changed: ASR=6.47% (695/10745), OR=1.114, Holm p=0.1152
+- spacing_token_count_changed: ASR=6.42% (1511/23539), OR=1.296, Holm p=1.663e-05
+- number_changed: ASR=5.72% (35/612), OR=0.940, Holm p=0.7975
+- negation_modality_changed: ASR=5.71% (188/3295), OR=0.932, Holm p=0.7922
+
+Lexical substitution bins:
+- 0-0.25: ASR=2.05% (6/293)
+- 0.25-0.50: ASR=3.45% (91/2636)
+- 0.50-0.75: ASR=4.85% (418/8626)
+- 0.75-1.00: ASR=6.96% (1416/20341)

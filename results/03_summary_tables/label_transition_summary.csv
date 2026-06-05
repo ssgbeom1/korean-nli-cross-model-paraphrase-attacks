@@ -1,0 +1,7 @@
+﻿gold_label,gold_name,pred_label,pred_name,count,total_from_gold,percentage
+0,Entailment,1,Neutral,475,570,83.33333333333334
+0,Entailment,2,Contradiction,95,570,16.666666666666664
+1,Neutral,0,Entailment,540,867,62.28373702422145
+1,Neutral,2,Contradiction,327,867,37.71626297577855
+2,Contradiction,0,Entailment,144,494,29.1497975708502
+2,Contradiction,1,Neutral,350,494,70.8502024291498

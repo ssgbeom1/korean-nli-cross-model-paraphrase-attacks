@@ -1,0 +1,9 @@
+﻿language,split,label,n
+ko,test_clean,0,1103
+ko,test_clean,1,896
+ko,balanced_sample,0,250
+ko,balanced_sample,1,250
+en,test_clean,0,1093
+en,test_clean,1,907
+en,balanced_sample,0,250
+en,balanced_sample,1,250

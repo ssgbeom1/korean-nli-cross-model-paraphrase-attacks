@@ -1,0 +1,19 @@
+\begin{table}[h]
+\centering
+\caption{Paraphrase quality comparison. Defect denotes surface-form defects, not semantic invalidity.}
+\label{tab:quality}
+\begin{tabular}{lcccc}
+\hline
+Method & N & PPL Mean & PPL Median & Defect (\%) \\
+\hline
+Gemini & 2209 & 243.75 & 136.26 & 0.00 \\
+GPT & 2209 & 310.59 & 140.24 & 0.00 \\
+Claude Sonnet & 2209 & 365.68 & 156.08 & 0.00 \\
+HyperCLOVA X & 2209 & 449.20 & 208.81 & 0.00 \\
+\hline
+Back Translation & 2136 & 298.09 & 140.12 & 0.00 \\
+BERT-Attack & 3000 & 728.94 & 268.58 & 8.70 \\
+EDA & 3000 & 1159.24 & 389.57 & 0.37 \\
+\hline
+\end{tabular}
+\end{table}

@@ -1,0 +1,13 @@
+Human-Adjusted ASR Summary
+==========================
+
+Primary adjusted ASR treats U/TIE human-validation outcomes as not label-preserving.
+The resolved version excludes U/TIE outcomes as a sensitivity analysis.
+
+Main estimates:
+- bt: raw ASR=7.67%, LPR-weighted adjusted ASR=4.88% [4.26, 5.51], resolved=5.28%
+- llm: raw ASR=6.05%, LPR-weighted adjusted ASR=5.52% [5.27, 5.77], resolved=5.68%
+
+BT-intersection comparison:
+- bt: raw ASR=7.67%, adjusted=4.88% [4.25, 5.51]
+- llm: raw ASR=6.14%, adjusted=5.60% [5.35, 5.86]

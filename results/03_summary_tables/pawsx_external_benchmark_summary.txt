@@ -1,0 +1,19 @@
+PAWS-X External Benchmark Summary
+=================================
+
+Task: binary semantic equivalence on balanced PAWS-X Korean/English samples.
+
+- gemini: accuracy=83.30% (1000/1000 valid, parse failures=0)
+- openai: accuracy=80.10% (1000/1000 valid, parse failures=0)
+- sonnet: accuracy=79.30% (1000/1000 valid, parse failures=0)
+- clova: accuracy=70.50% (1000/1000 valid, parse failures=0)
+
+By language:
+- en/gemini: accuracy=86.00% (500/500 valid)
+- en/sonnet: accuracy=83.00% (500/500 valid)
+- en/openai: accuracy=82.40% (500/500 valid)
+- en/clova: accuracy=75.00% (500/500 valid)
+- ko/gemini: accuracy=80.60% (500/500 valid)
+- ko/openai: accuracy=77.80% (500/500 valid)
+- ko/sonnet: accuracy=75.60% (500/500 valid)
+- ko/clova: accuracy=66.00% (500/500 valid)

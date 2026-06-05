@@ -1,0 +1,5 @@
+﻿model,path,exists,rows,expected_rows,duplicate_ids,missing_pred_original,invalid_pred_original_values,id_set_matches_shared,ok
+hyperclova_x,results\01_cross_model_evaluation\original_predictions\hyperclova_x_original_predictions.csv,True,2209,2209,0,0,,True,True
+gemini,results\01_cross_model_evaluation\original_predictions\gemini_original_predictions.csv,True,2209,2209,0,0,,True,True
+gpt,results\01_cross_model_evaluation\original_predictions\gpt_original_predictions.csv,True,2209,2209,0,0,,True,True
+claude_sonnet,results\01_cross_model_evaluation\original_predictions\claude_sonnet_original_predictions.csv,True,2209,2209,0,0,,True,True

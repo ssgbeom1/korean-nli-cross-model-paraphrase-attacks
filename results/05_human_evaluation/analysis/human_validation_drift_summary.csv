@@ -1,0 +1,16 @@
+﻿condition_type,category,count,percent_pct
+bt,TIE,4,2.2222222222222223
+bt,causality_temporal_relation_drift,2,1.1111111111111112
+bt,entity_number_time_change,14,7.777777777777778
+bt,fluency_grammar_defect,9,5.0
+bt,negation_modality_scope_drift,9,5.0
+bt,no_semantic_drift,98,54.44444444444444
+bt,other,7,3.888888888888889
+bt,specificity_shift,37,20.555555555555554
+llm,TIE,9,1.5
+llm,ambiguous_label,6,1.0
+llm,causality_temporal_relation_drift,1,0.16666666666666669
+llm,entity_number_time_change,9,1.5
+llm,fluency_grammar_defect,1,0.16666666666666669
+llm,negation_modality_scope_drift,22,3.6666666666666665
+llm,no_semantic_drift,552,92.0

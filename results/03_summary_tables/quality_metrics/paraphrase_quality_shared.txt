@@ -1,0 +1,10 @@
+Paraphrase quality summary (shared)
+============================================
+
+- Gemini: n=2209, PPL mean=243.75, PPL median=136.26, defect=0.00%
+- Back Translation: n=2136, PPL mean=298.09, PPL median=140.12, defect=0.00%
+- GPT: n=2209, PPL mean=310.59, PPL median=140.24, defect=0.00%
+- Claude Sonnet: n=2209, PPL mean=365.68, PPL median=156.08, defect=0.00%
+- HyperCLOVA X: n=2209, PPL mean=449.20, PPL median=208.81, defect=0.00%
+- BERT-Attack: n=3000, PPL mean=728.94, PPL median=268.58, defect=8.70%
+- EDA: n=3000, PPL mean=1159.24, PPL median=389.57, defect=0.37%

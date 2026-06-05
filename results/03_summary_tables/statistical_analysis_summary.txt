@@ -1,0 +1,15 @@
+Statistical analysis summary
+
+Overall ASR was 6.05% (1931/31896), with Wilson 95% CI [5.80%, 6.32%].
+Label-wise ASR was 4.92% for Entailment, 9.08% for Neutral, and 4.59% for Contradiction.
+
+Pairwise bootstrap comparisons use sample-id cluster resampling and Holm correction within each comparison family.
+
+Manuscript note: the four-model accuracy-vulnerability correlation should be described as a descriptive observation only, not as an inferential claim.
+
+Smallest Holm-adjusted pairwise p-values:
+- Label: Entailment minus Neutral; diff=-4.16 pp, 95% bootstrap CI [-5.52, -2.94], Holm p=0.0030
+- Label: Neutral minus Contradiction; diff=4.49 pp, 95% bootstrap CI [3.20, 5.92], Holm p=0.0030
+- Generator: claude_sonnet minus gemini; diff=-1.03 pp, 95% bootstrap CI [-1.69, -0.40], Holm p=0.0060
+- Generator: claude_sonnet minus hyperclova_x; diff=-4.84 pp, 95% bootstrap CI [-5.80, -3.89], Holm p=0.0060
+- Target: claude_sonnet minus gemini; diff=2.16 pp, 95% bootstrap CI [1.51, 2.87], Holm p=0.0060

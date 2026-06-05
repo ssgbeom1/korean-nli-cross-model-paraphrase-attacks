@@ -1,0 +1,7 @@
+﻿reviewer_comment,response_action,evidence_files
+R1-1 pseudocode/code,Add Algorithm 1 and point to pipeline scripts.,code/pipeline/*.py; code/analysis/02_verify_4x4_integrity.py
+R1-2 statistical analysis,"Report ASR CI, bootstrap pairwise tests, adjusted ASR, and feature odds ratios.",results/03_summary_tables/generator_target_asr_ci.csv; statistical_analysis_pairwise.csv; human_adjusted_asr_summary.csv
+R2-1 human validation and paraphrase errors,Use LLM 600 and BT 180 human annotation with drift taxonomy and LPR.,results/03_summary_tables/human_validation_*.csv; human_validation_summary.txt
+R2-2 external paraphrase benchmark,Add PAWS-X Korean/English auxiliary validation.,results/03_summary_tables/pawsx_external_benchmark_summary.csv
+R2-3 vulnerability vs quality issue,Add threat model and interpret BT raw ASR through human-adjusted ASR.,results/03_summary_tables/bt_vs_llm_human_adjusted_comparison.csv
+R2-4 Korean specificity,Add Korean linguistic feature analysis.,results/03_summary_tables/korean_linguistic_feature_summary.csv

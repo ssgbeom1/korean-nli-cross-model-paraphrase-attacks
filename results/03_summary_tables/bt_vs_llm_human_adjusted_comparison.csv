@@ -1,0 +1,3 @@
+﻿condition_type,method,raw_n_original_correct,raw_attack_success,raw_asr_ci,n_total,n_preserved,n_unresolved,human_lpr_ci,human_lpr_resolved_ci,adjusted_asr_ci,resolved_adjusted_asr_ci,interpretation
+llm,LLM paraphrase,30860,1896,"6.14 [5.88, 6.42]",600,552,16,"92.00 [89.55, 93.91]","94.52 [92.37, 96.09]","5.60 [5.35, 5.86]","5.76 [5.51, 6.02]",Higher semantic preservation; adjusted ASR remains close to raw ASR.
+bt,Back Translation,7715,592,"7.67 [7.10, 8.29]",180,111,15,"61.67 [54.39, 68.46]","67.27 [59.79, 73.97]","4.88 [4.25, 5.51]","5.28 [4.64, 5.96]","Higher raw ASR, but many flips are attributable to semantic drift."

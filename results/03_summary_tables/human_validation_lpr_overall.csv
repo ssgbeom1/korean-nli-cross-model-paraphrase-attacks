@@ -1,0 +1,3 @@
+﻿condition_type,n_total,n_resolved,n_preserved,n_not_preserved,n_unresolved,lpr_all_pct,lpr_all_ci_lower_pct,lpr_all_ci_upper_pct,lpr_resolved_pct,lpr_resolved_ci_lower_pct,lpr_resolved_ci_upper_pct
+bt,180,165,111,54,15,61.66666666666667,54.39052747311439,68.45524424204797,67.27272727272727,59.79128801608259,73.9681928591287
+llm,600,584,552,32,16,92.0,89.55253260858936,93.91308450625978,94.52054794520548,92.36703888635739,96.09218633453888

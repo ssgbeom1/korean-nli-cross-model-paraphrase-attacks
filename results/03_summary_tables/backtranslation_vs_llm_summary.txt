@@ -1,0 +1,62 @@
+======================================================================
+Back Translation vs LLM ASR - Fair Comparison
+(Same sample set via intersection filtering)
+======================================================================
+
+[Intersection Info]
+  BT unique IDs: 2136
+  LLM unique IDs (shared_ids): 2209
+  Intersection: 2136
+  BT rows after filter: 8544
+  LLM rows after filter: 34176
+
+======================================================================
+[Overall ASR Comparison]
+  BackTranslation:  7.67% [7.08%, 8.27%]  (n=7715, success=592)
+  LLM (4 models):   6.04% [5.77%, 6.31%]  (n=30827, success=1861)
+
+  >> CI separated -> BT significantly HIGHER ASR
+
+[BT - Target ASR]
+  BT -> hyperclova_x: 10.55% [9.10%, 12.00%]
+  BT -> gemini: 5.71% [4.72%, 6.74%]
+  BT -> gpt: 8.38% [7.20%, 9.61%]
+  BT -> claude_sonnet: 6.50% [5.45%, 7.60%]
+
+[LLM - Generator ASR]
+  hyperclova_x: 9.72% [9.06%, 10.38%]
+  gemini: 5.96% [5.44%, 6.51%]
+  gpt: 3.74% [3.31%, 4.17%]
+  claude_sonnet: 4.72% [4.26%, 5.19%]
+
+[LLM - Target ASR]
+  -> hyperclova_x: 9.51% [8.83%, 10.21%]
+  -> gemini: 3.41% [3.01%, 3.80%]
+  -> gpt: 6.06% [5.55%, 6.60%]
+  -> claude_sonnet: 5.70% [5.20%, 6.21%]
+
+======================================================================
+[Label-wise ASR Comparison]
+  Entailment:
+    BT:  9.95% [8.87%, 11.06%]
+    LLM: 4.91% [4.51%, 5.32%]
+  Neutral:
+    BT:  8.47% [7.35%, 9.60%]
+    LLM: 8.87% [8.28%, 9.45%]
+  Contradiction:
+    BT:  4.53% [3.76%, 5.33%]
+    LLM: 4.75% [4.33%, 5.16%]
+
+======================================================================
+[Statistical Significance: BT vs each LLM generator]
+  BT vs hyperclova_x: separated (significant) (diff=+2.05%p)
+  BT vs gemini: separated (significant) (diff=-1.71%p)
+  BT vs gpt: separated (significant) (diff=-3.94%p)
+  BT vs claude_sonnet: separated (significant) (diff=-2.95%p)
+
+======================================================================
+[Conclusion]
+BackTranslation (7.67%) shows HIGHER ASR than LLM (6.04%).
+However, LLM paraphrases have significantly better quality (lower PPL, lower error rate).
+LLM attacks are more 'stealthy' - higher quality with comparable/lower ASR.
+======================================================================

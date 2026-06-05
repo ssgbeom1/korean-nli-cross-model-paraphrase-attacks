@@ -1,0 +1,31 @@
+BT exact-balanced human-validation sampling summary
+===================================================
+Annotation rows: 180
+Unique source BT units: 179
+Duplicate rows for exact balance: 1
+
+Removed row for balance:
+annotation_id unit_id primary_target_key  label   id
+     BTHV0005 BTU0051      claude_sonnet      0 1083
+
+Duplicated source row for balance:
+     unit_id source_unit_id primary_target_key  label  id
+BTU0305_DUP1        BTU0305             gemini      2 782
+
+Quota by primary target and label:
+primary_target_key  label    label_name  sampled  unique_source_units
+     claude_sonnet      0    Entailment       15                   15
+     claude_sonnet      1       Neutral       15                   15
+     claude_sonnet      2 Contradiction       15                   15
+            gemini      0    Entailment       15                   15
+            gemini      1       Neutral       15                   15
+            gemini      2 Contradiction       15                   14
+               gpt      0    Entailment       15                   15
+               gpt      1       Neutral       15                   15
+               gpt      2 Contradiction       15                   15
+      hyperclova_x      0    Entailment       15                   15
+      hyperclova_x      1       Neutral       15                   15
+      hyperclova_x      2 Contradiction       15                   15
+
+Output directory:
+results\05_human_evaluation\bt_label_invariance_180_exact_balanced
