@@ -1,65 +1,75 @@
-# korean-nli-cross-model-paraphrase-attacks
+# Korean NLI Cross-Model Paraphrase Robustness
 
-Clean reproducibility package for the revised Korean NLI cross-model paraphrase-attack evaluation.
+Reproducibility package for the paper:
 
-## Scope
+> **Cross-Model Adversarial Robustness Evaluation of LLMs on Korean Natural Language Inference**
 
-This repository keeps the data, scripts, and result tables needed to inspect or rerun the revised experiments:
+This repository contains the code, data splits, model outputs, analysis tables, and figures used for a Korean NLI robustness study based on cross-model, meaning-preserving paraphrase attacks.
 
-- KLUE-NLI sampled source set
-- LLM-generated and baseline paraphrase attack files
-- BERTScore-filtered valid attack files
-- 2209-sample LLM shared-valid set
-- 4x4 generator-target evaluation outputs
-- Back Translation comparison outputs
-- 600-case LLM human-validation package and 180-case Back Translation human-validation package
-- PAWS-X Korean/English external benchmark sample and outputs
-- Korean linguistic feature analysis
-- statistical summaries, integrity checks, and reviewer-response evidence tables
+## Overview
 
-Temporary logs, debug dumps, bytecode caches, API keys, and one-off run records are not part of the clean package.
+We evaluate four API-served LLMs as both paraphrase generators and NLI target models:
+
+- Gemini 3.1 Pro Preview
+- GPT-5.2
+- Claude Sonnet 4.5
+- HyperCLOVA X HCX-005
+
+The main experiment uses a **4 x 4 generator-target design** on the KLUE-NLI validation split. Each model generates Korean paraphrases of the hypothesis sentence, and each target model is evaluated on the original and paraphrased premise-hypothesis pairs.
+
+The package also includes Back Translation comparison, expanded human label-invariance validation, PAWS-X auxiliary evaluation, Korean linguistic feature analysis, statistical summaries, and integrity checks.
+
+## Headline Results
+
+- Shared valid LLM set: **2,209 samples**
+- LLM inference rows: **35,344**
+- Overall pooled ASR: **6.05%**
+- LLM human validation: **600 attack-success cases**
+- Back Translation human validation: **180 attack-success cases**
+- Pooled adjusted ASR on the LLM-BT comparison subset:
+  - LLM paraphrases: **5.60%**
+  - Back Translation: **4.88%**
+
+Main qualitative findings:
+
+- Cross-model transferability is asymmetric.
+- HyperCLOVA X shows the highest generator-side ASR and the highest target-side vulnerability in this evaluation setting.
+- Neutral-labeled samples are more vulnerable than Entailment or Contradiction.
+- LLM-generated paraphrases preserve labels more reliably than Back Translation.
+- Korean particle-count and spacing/token-count changes are significantly associated with attack success.
 
 ## Repository Layout
 
 ```text
 code/
-  analysis/                   Current analysis, sampling, verification, and summary scripts
-  analysis/_legacy_archive/   Superseded analysis scripts kept for audit history
-  pipeline/                   Data loading, generation, validation, shared-set, and evaluation pipeline
-  shell/                      PowerShell and shell pipeline runners
-  utils/                      Shared API and metric helpers
+  pipeline/                   Data loading, generation, filtering, shared-set construction, evaluation
+  analysis/                   Analysis, validation sampling, statistical summaries, figures
+  shell/                      PowerShell and shell runners
+  utils/                      Shared API, parsing, cache, and metric helpers
+
 data/
-  01_sampled_source/          Sampled KLUE-NLI validation source set
-  02_generated_attacks/       Generated LLM and baseline attack files
+  01_sampled_source/          KLUE-NLI validation sample
+  02_generated_attacks/       Generated LLM and baseline paraphrases
   03_validated_attacks/       BERTScore-filtered attack files
-  04_shared_valid_set/        Shared-valid subsets and shared ids
-  05_external_benchmark/      PAWS-X Korean/English benchmark samples
+  04_shared_valid_set/        Shared valid subsets and IDs
+  05_external_benchmark/      PAWS-X Korean/English samples
+
 results/
-  01_cross_model_evaluation/  4x4 evaluation outputs and original prediction caches
+  01_cross_model_evaluation/  4 x 4 evaluation outputs and original-prediction caches
   02_backtranslation_evaluation/
                               Back Translation target-evaluation outputs
-  03_summary_tables/          ASR, CI, human-adjusted, PAWS-X, and manuscript summary tables
-  05_human_evaluation/        Human-validation packages and aggregation outputs
+  03_summary_tables/          Main ASR, adjusted ASR, PAWS-X, linguistic, and statistical summaries
+  05_human_evaluation/        Human-validation sampling metadata and aggregate outputs
   06_external_benchmark/      PAWS-X model outputs
   06_integrity_checks/        Integrity verification reports
+
+figures/                      Paper figures generated from the analysis outputs
+tools/                        Utility scripts for integrity/cache synchronization
 ```
 
-## Current Evaluation State
+## Key Files
 
-The LLM shared-valid set contains 2209 samples.
-
-Integrity verification passed with:
-
-- original prediction caches OK: 4/4
-- 4x4 generator-target cells OK: 16/16
-- rows per cell: 2209
-- missing `pred_original`: 0
-- missing `pred_attacked`: 0
-- duplicate ids: 0
-- prediction labels restricted to 0/1/2
-- derived correctness and attack-success columns consistent with predictions
-
-Primary outputs:
+Primary manuscript-facing outputs:
 
 ```text
 results/03_summary_tables/4x4_analysis_summary.txt
@@ -70,6 +80,18 @@ results/03_summary_tables/korean_linguistic_feature_summary.txt
 results/06_integrity_checks/4x4_integrity_summary.txt
 ```
 
+Primary figures:
+
+```text
+figures/fig_pipeline.png
+figures/fig_asr_heatmap.png
+figures/fig_gen_tgt_asr.png
+figures/fig_label_transition.png
+figures/fig_quality_comparison.png
+figures/fig_adjusted_asr.png
+figures/fig_korean_linguistic_features.png
+```
+
 ## Environment
 
 Install dependencies:
@@ -78,7 +100,7 @@ Install dependencies:
 pip install -r code/requirements.txt
 ```
 
-Create a local `.env` file from `.env.example` and fill in API credentials only if you need to rerun API-based generation or evaluation.
+Create a local environment file only if you need to rerun API-based generation or evaluation:
 
 ```bash
 cp .env.example .env
@@ -86,9 +108,9 @@ cp .env.example .env
 
 The `.env` file is intentionally ignored by Git.
 
-## Main Pipeline
+## Reproducing the Pipeline
 
-The core pipeline is organized as:
+The pipeline is organized as:
 
 ```text
 code/pipeline/01_load_data.py
@@ -99,52 +121,61 @@ code/pipeline/05_build_shared_valid.py
 code/pipeline/06_evaluate_attacks.py
 ```
 
-PowerShell runners:
+Convenience runners:
 
 ```powershell
+powershell -ExecutionPolicy Bypass -File .\code\shell\run_pipeline.ps1
 powershell -ExecutionPolicy Bypass -File .\code\shell\run_4x4_reeval_gemini31.ps1
 powershell -ExecutionPolicy Bypass -File .\code\shell\run_bt_evaluation.ps1
 powershell -ExecutionPolicy Bypass -File .\code\shell\run_pawsx_evaluation.ps1
 ```
 
-## Key Analysis Scripts
-
-```text
-code/analysis/01_prepare_bt_shared.py
-code/analysis/02_verify_4x4_integrity.py
-code/analysis/03_generate_4x4_analysis.py
-code/analysis/04_statistical_analysis_summary.py
-code/analysis/05_calculate_quality_metrics.py
-code/analysis/06_generate_quality_figure.py
-code/analysis/07_sample_human_validation.py
-code/analysis/08_make_llm_human_validation_exact_balanced.py
-code/analysis/09_sample_bt_human_validation.py
-code/analysis/10_make_bt_human_validation_exact_balanced.py
-code/analysis/11_aggregate_human_validation.py
-code/analysis/12_compute_human_adjusted_asr.py
-code/analysis/13_write_bt_llm_comparison_table.py
-code/analysis/14_prepare_pawsx_from_parquet.py
-code/analysis/15_evaluate_pawsx_external_benchmark.py
-code/analysis/16_summarize_pawsx_external_benchmark.py
-code/analysis/17_korean_linguistic_feature_analysis.py
-code/analysis/18_generate_paper_figures.py
-code/analysis/19_write_manuscript_revision_evidence.py
-```
+Note that full regeneration requires access to the corresponding API providers and may produce different outputs if provider-side models change.
 
 ## Verification
 
-To re-run the 4x4 integrity check:
+Run the 4 x 4 integrity check:
 
 ```bash
 python code/analysis/02_verify_4x4_integrity.py --expected_rows 2209
 ```
 
-To refresh manuscript evidence tables after result updates:
+Expected final check:
+
+```text
+Original caches OK: 4/4
+4x4 cells OK: 16/16
+Cell original-cache mismatches: 0
+Fatal problems: 0
+```
+
+Refresh manuscript evidence summaries:
 
 ```bash
 python code/analysis/19_write_manuscript_revision_evidence.py
 ```
 
-## Notes
+## Human Validation
 
-Dataset-derived files and model outputs may be subject to the terms of the original data sources and API providers. Verify redistribution requirements before public release.
+The public package includes validation sampling metadata and aggregate results. Raw per-rater annotation sheets and private answer keys are intentionally excluded from Git tracking. The manuscript reports:
+
+- LLM label-invariance validation: 600 sampled attack-success cases
+- Back Translation label-invariance validation: 180 sampled attack-success cases
+- Three independent native Korean-speaking evaluators per case
+
+## Notes on Data and Model Outputs
+
+Dataset-derived files and model outputs may be subject to the terms of the original data sources and API providers. Please verify redistribution and reuse requirements before using these files outside research reproducibility or review contexts.
+
+## Citation
+
+If you use this repository, please cite the associated manuscript:
+
+```bibtex
+@misc{kim2026korean_nli_cross_model_paraphrase,
+  title  = {Cross-Model Adversarial Robustness Evaluation of LLMs on Korean Natural Language Inference},
+  author = {Kim, Beomseok and Choi, Hoansuk and Yoo, Namhyun and Yang, Jinhong},
+  year   = {2026},
+  note   = {Reproducibility package}
+}
+```
