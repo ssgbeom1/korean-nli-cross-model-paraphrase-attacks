@@ -73,7 +73,7 @@ class BackTranslation:
                 self.translator = Translator()
                 self.use_deep_translator = False
             except ImportError:
-                raise ImportError('deep-translator 또는 googletrans를 설치하세요: pip install deep-translator')
+                raise ImportError('Install deep-translator or googletrans: pip install deep-translator')
 
     def attack(self, text: str) -> str:
         try:
@@ -85,7 +85,7 @@ class BackTranslation:
                 korean = self.translator.translate(english, src='en', dest='ko').text
             return korean if korean else text
         except Exception as e:
-            print(f'번역 에러: {e}')
+            print(f'Translation error: {e}')
             return text
 
 class EDA:
@@ -167,12 +167,12 @@ class EDA:
         return ' '.join(augmented_words)
 
 def main():
-    ap = argparse.ArgumentParser(description='베이스라인 패러프레이즈 생성')
-    ap.add_argument('--method', required=True, choices=['bert_attack', 'backtranslation', 'eda'], help='베이스라인 방법 선택')
-    ap.add_argument('--input', default=str(Path(SAMPLED_SOURCE_DIR) / sampled_source_filename()), help='입력 파일 경로')
-    ap.add_argument('--output', default=None, help='출력 파일 경로 (기본: data/02_generated_attacks/<method>_attacks_3000.csv)')
-    ap.add_argument('--n', type=int, default=3000, help='처리할 샘플 수')
-    ap.add_argument('--seed', type=int, default=42, help='랜덤 시드')
+    ap = argparse.ArgumentParser(description='Generate baseline paraphrases.')
+    ap.add_argument('--method', required=True, choices=['bert_attack', 'backtranslation', 'eda'], help='Baseline method to run.')
+    ap.add_argument('--input', default=str(Path(SAMPLED_SOURCE_DIR) / sampled_source_filename()), help='Input file path.')
+    ap.add_argument('--output', default=None, help='Output file path. Default: data/02_generated_attacks/<method>_attacks_3000.csv.')
+    ap.add_argument('--n', type=int, default=3000, help='Number of samples to process.')
+    ap.add_argument('--seed', type=int, default=42, help='Random seed.')
     args = ap.parse_args()
     random.seed(args.seed)
     if args.output is None:
@@ -217,7 +217,7 @@ def main():
     for i in range(min(3, len(result_df))):
         row = result_df.iloc[i]
         print(f'\n[{i + 1}]')
-        print(f"  원본: {row['hypothesis'][:50]}...")
-        print(f"  변형: {row['attacked_hypothesis'][:50]}...")
+        print(f"  Original: {row['hypothesis'][:50]}...")
+        print(f"  Paraphrase: {row['attacked_hypothesis'][:50]}...")
 if __name__ == '__main__':
     main()

@@ -47,3 +47,6 @@ release/
 results/05_human_evaluation/**/human_validation_annotation_sheet_researcher*.csv
 results/05_human_evaluation/**/bt_human_validation_annotation_sheet_researcher*.csv
 results/05_human_evaluation/**/*answer_key.csv
+
+# Superseded development scripts
+code/analysis/_legacy_archive/

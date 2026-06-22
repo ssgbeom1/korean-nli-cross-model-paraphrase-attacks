@@ -14,6 +14,7 @@ def postprocess_one_sentence(text: str) -> str:
         return ''
     cleaned = str(text).strip().strip('"').strip("'").strip()
     cleaned = cleaned.splitlines()[0].strip()
+    # Korean prefixes are retained because models may echo the Korean prompt.
     for prefix in ['패러프레이즈:', '변형:', '답:', '- ', '결과:']:
         if cleaned.startswith(prefix):
             cleaned = cleaned[len(prefix):].strip()

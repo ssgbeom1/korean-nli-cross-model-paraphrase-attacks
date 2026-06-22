@@ -23,7 +23,7 @@ def generate_paraphrase(generator: str, text: str, model: str) -> str:
     return call_with_retry(_call, max_retries=4)
 
 def main():
-    ap = argparse.ArgumentParser(description='LLM 패러프레이즈 공격 생성')
+    ap = argparse.ArgumentParser(description='Generate LLM paraphrase attacks.')
     ap.add_argument('--generator', required=True, choices=['clova', 'gemini', 'openai', 'sonnet'])
     ap.add_argument('--input', type=str, default=str(Path(SAMPLED_SOURCE_DIR) / sampled_source_filename()))
     ap.add_argument('--output', type=str, default='')
@@ -31,7 +31,7 @@ def main():
     ap.add_argument('--resume', action='store_true')
     ap.add_argument('--model', type=str, default='')
     ap.add_argument('--flush_every', type=int, default=50)
-    ap.add_argument('--min_interval', type=float, default=0.2, help='최소 호출 간격(초)')
+    ap.add_argument('--min_interval', type=float, default=0.2, help='Minimum interval between API calls in seconds.')
     ap.add_argument('--debug_dir', type=str, default='debug')
     args = ap.parse_args()
     generator = args.generator

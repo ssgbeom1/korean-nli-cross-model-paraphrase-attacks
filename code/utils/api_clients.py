@@ -33,7 +33,7 @@ def call_clova(text: str, *, model: str='HCX-005', max_tokens: int=16, temperatu
     host = 'https://clovastudio.stream.ntruss.com'
     raw_key = os.getenv('CLOVA_API_KEY')
     if not raw_key:
-        raise RuntimeError('CLOVA_API_KEY 환경변수를 설정하세요.')
+        raise RuntimeError('Set the CLOVA_API_KEY environment variable.')
     api_key = raw_key if raw_key.startswith('Bearer') else f'Bearer {raw_key}'
     headers = {'Authorization': api_key, 'X-NCP-CLOVASTUDIO-REQUEST-ID': str(uuid.uuid4()).replace('-', ''), 'Content-Type': 'application/json; charset=utf-8', 'Accept': 'text/event-stream'}
     messages = []

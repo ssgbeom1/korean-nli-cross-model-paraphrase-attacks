@@ -10,6 +10,16 @@ except ImportError:
     pass
 
 
+# The actual API prompts are intentionally written in Korean because the
+# experiments evaluate Korean NLI. The English comments below are non-runtime
+# renderings for international readability and do not alter the experiment.
+#
+# English rendering: You are a meaning-preserving paraphrase generator for
+# robustness evaluation. Rewrite the given Korean sentence by changing only its
+# surface form while preserving its truth-conditional and entailment meaning.
+# Allowed changes include lexical substitution, structural reordering, and
+# harmless expansions. Do not change facts, quantities, names, negation,
+# causality, scope, or conditions. Output exactly one paraphrased sentence.
 PARAPHRASE_SYSTEM_PROMPT = """당신은 NLP 시스템의 강건성(robustness) 평가를 위한 의미 보존 패러프레이즈 생성기입니다.
 주어진 문장의 의미(참/거짓 관계 및 함의)는 바꾸지 말고, 표면 형태만 바꾼 한국어 문장으로 다시 작성하세요.
 
@@ -27,6 +37,9 @@ PARAPHRASE_SYSTEM_PROMPT = """당신은 NLP 시스템의 강건성(robustness) �
 
 PARAPHRASE_USER_TEMPLATE = "원본 문장: {text}\n\n패러프레이즈:"
 
+# English rendering: This is a natural language inference task. Classify the
+# relation between the premise and hypothesis as 0 entailment, 1 neutral, or
+# 2 contradiction. Output only one digit, without explanation or extra text.
 NLI_EVAL_PROMPT = """다음은 자연어 추론(NLI) 문제입니다.
 Premise(전제)와 Hypothesis(가설)의 관계를 0/1/2 중 하나로 분류하세요.
 

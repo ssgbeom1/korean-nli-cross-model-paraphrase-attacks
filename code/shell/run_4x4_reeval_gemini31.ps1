@@ -3,7 +3,13 @@ $ErrorActionPreference = "Stop"
 $repoRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 Set-Location $repoRoot
 
-$python = "C:\Users\qjatj\Desktop\Paperproject\manufacturing_ai_llm_paper\.venv\Scripts\python.exe"
+$python = if ($env:PYTHON) {
+    $env:PYTHON
+} elseif (Test-Path (Join-Path $repoRoot ".venv\Scripts\python.exe")) {
+    Join-Path $repoRoot ".venv\Scripts\python.exe"
+} else {
+    "python"
+}
 $geminiModel = "gemini-3.1-pro-preview"
 
 $modelFileKey = @{

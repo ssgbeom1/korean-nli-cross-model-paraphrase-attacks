@@ -26,7 +26,7 @@ def stratified_sample(df: pd.DataFrame, n: int, seed: int) -> pd.DataFrame:
 
 def main():
     dataset_split = 'validation'
-    ap = argparse.ArgumentParser(description='KLUE-NLI 데이터 로드 및 샘플링')
+    ap = argparse.ArgumentParser(description='Load and sample the KLUE-NLI dataset.')
     ap.add_argument('--n', type=int, default=3000)
     ap.add_argument('--seed', type=int, default=42)
     ap.add_argument('--out', type=str, default=str(Path(SAMPLED_SOURCE_DIR) / sampled_source_filename()))
